@@ -79,10 +79,11 @@ class MainApp(QtWidgets.QMainWindow, design.Ui_MainWindow):
                  for edge in border for n in edge]
             Y = [p.node_displacement(nodes.index(n))[1] + p.node(nodes.index(n)).y
                  for edge in border for n in edge]
-            self.MplWidget.canvas.axes.clear()
-            self.MplWidget.canvas.axes.scatter(X, Y)
+            self.MplWidget.canvas.axes.scatter(X, Y, s=1)
+            self.MplWidget.canvas.axes.axis('equal')
+            self.MplWidget.canvas.axes.grid(True)
+            print(str(self.MplWidget.canvas.axes.xticks))
             self.MplWidget.canvas.draw()
-            print('ok')
         # for i in range(0, p.elements()):
         #     d = dict(id=p.element(i).id, items=p.element(i).items,
         #              type=p.element(i).type)
