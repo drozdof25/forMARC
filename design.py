@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'D:\Projects\forMARC\design.ui'
+# Form implementation generated from reading ui file 'design.ui'
 #
 # Created by: PyQt5 UI code generator 5.13.2
 #
@@ -13,7 +13,7 @@ from combobox import ComboBox
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1365, 1006)
+        MainWindow.resize(1365, 1007)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.centralwidget)
@@ -74,12 +74,6 @@ class Ui_MainWindow(object):
         self.horizontalLayout_7.setObjectName("horizontalLayout_7")
         self.gridLayout_4 = QtWidgets.QGridLayout()
         self.gridLayout_4.setObjectName("gridLayout_4")
-        self.pushButton_4 = QtWidgets.QPushButton(self.verticalLayoutWidget)
-        self.pushButton_4.setObjectName("pushButton_4")
-        self.gridLayout_4.addWidget(self.pushButton_4, 1, 2, 1, 1)
-        self.comboBox_8 = ComboBox(self.verticalLayoutWidget)
-        self.comboBox_8.setObjectName("comboBox_8")
-        self.gridLayout_4.addWidget(self.comboBox_8, 1, 1, 1, 1)
         self.label_10 = QtWidgets.QLabel(self.verticalLayoutWidget)
         self.label_10.setMinimumSize(QtCore.QSize(40, 20))
         self.label_10.setObjectName("label_10")
@@ -98,10 +92,29 @@ class Ui_MainWindow(object):
         self.comboBox_7.setPalette(palette)
         self.comboBox_7.setObjectName("comboBox_7")
         self.gridLayout_4.addWidget(self.comboBox_7, 1, 0, 1, 1)
+        self.pushButton_4 = QtWidgets.QPushButton(self.verticalLayoutWidget)
+        self.pushButton_4.setObjectName("pushButton_4")
+        self.gridLayout_4.addWidget(self.pushButton_4, 1, 3, 1, 1)
+        self.comboBox_8 = ComboBox(self.verticalLayoutWidget)
+        self.comboBox_8.setObjectName("comboBox_8")
+        self.gridLayout_4.addWidget(self.comboBox_8, 1, 1, 1, 1)
         self.label_9 = QtWidgets.QLabel(self.verticalLayoutWidget)
         self.label_9.setMinimumSize(QtCore.QSize(40, 20))
         self.label_9.setObjectName("label_9")
         self.gridLayout_4.addWidget(self.label_9, 0, 0, 1, 1)
+        self.lineEdit_3 = QtWidgets.QLineEdit(self.verticalLayoutWidget)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.lineEdit_3.sizePolicy().hasHeightForWidth())
+        self.lineEdit_3.setSizePolicy(sizePolicy)
+        self.lineEdit_3.setMinimumSize(QtCore.QSize(0, 20))
+        self.lineEdit_3.setText("")
+        self.lineEdit_3.setObjectName("lineEdit_3")
+        self.gridLayout_4.addWidget(self.lineEdit_3, 1, 2, 1, 1)
+        self.label_3 = QtWidgets.QLabel(self.verticalLayoutWidget)
+        self.label_3.setObjectName("label_3")
+        self.gridLayout_4.addWidget(self.label_3, 0, 2, 1, 1)
         self.horizontalLayout_7.addLayout(self.gridLayout_4)
         spacerItem = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_7.addItem(spacerItem)
@@ -119,6 +132,9 @@ class Ui_MainWindow(object):
         self.horizontalLayout_10.setObjectName("horizontalLayout_10")
         spacerItem1 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_10.addItem(spacerItem1)
+        self.pushButton = QtWidgets.QPushButton(self.verticalLayoutWidget)
+        self.pushButton.setObjectName("pushButton")
+        self.horizontalLayout_10.addWidget(self.pushButton)
         self.pushButton_5 = QtWidgets.QPushButton(self.verticalLayoutWidget)
         self.pushButton_5.setMinimumSize(QtCore.QSize(40, 20))
         self.pushButton_5.setObjectName("pushButton_5")
@@ -153,12 +169,13 @@ class Ui_MainWindow(object):
         self.buttonbrowse1.setText(_translate("MainWindow", "..."))
         self.label_2.setText(_translate("MainWindow", "Файл решения 3D задачи"))
         self.buttonbrowse2.setText(_translate("MainWindow", "..."))
-        self.pushButton_4.setText(_translate("MainWindow", "Добавить"))
         self.label_10.setText(_translate("MainWindow", "Инкремент"))
+        self.pushButton_4.setText(_translate("MainWindow", "Добавить"))
         self.label_9.setText(_translate("MainWindow", "Задача"))
+        self.label_3.setText(_translate("MainWindow", "Подпись"))
+        self.pushButton.setText(_translate("MainWindow", "Очистить"))
         self.pushButton_5.setText(_translate("MainWindow", "Сохранить"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_3), _translate("MainWindow", "Геометрия"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_4), _translate("MainWindow", "Tab 2"))
         self.menu.setTitle(_translate("MainWindow", "Настройки"))
-
 from mplwidget import MplWidget

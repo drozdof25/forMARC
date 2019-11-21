@@ -14,12 +14,14 @@ class MainApp(QtWidgets.QMainWindow, design.Ui_MainWindow):
         self.buttonbrowse1.clicked.connect(self.browse_file_2d)
         self.buttonbrowse2.clicked.connect(self.browse_file_3d)
         self.pushButton_4.clicked.connect(self.update_graph)
+        self.pushButton.clicked.connect(self.clear_graph)
         self.comboBox_8.popupAboutToBeShown.connect(self.update_combobox)
         self.incs = {'2D': [], '3D': []}
         self.path_to_2d_t16 = None
         self.path_to_3d_t16 = None
         self.comboBox_7.addItems(['2D', '3D'])
-
+        self.legend1 = []
+        self.legend2 = []
 
     def browse_file_2d(self):
         file = QtWidgets.QFileDialog.getOpenFileName(self, 'Выберите файл решения', './', 'Post File (*.t16 *.t19)')
@@ -79,11 +81,27 @@ class MainApp(QtWidgets.QMainWindow, design.Ui_MainWindow):
                  for edge in border for n in edge]
             Y = [p.node_displacement(nodes.index(n))[1] + p.node(nodes.index(n)).y
                  for edge in border for n in edge]
-            self.MplWidget.canvas.axes.scatter(X, Y, s=1)
+            legend1 = str(self.lineEdit_3.text())
+            main_graph = self.MplWidget.canvas.axes.scatter(X, Y, s=0.5)
+            max_width_x = max(X)
+            max_width_y = Y[X.index(max_width_x)]
+            # self.MplWidget.canvas.axes.legend(labels=[legend1], loc="upper left")
             self.MplWidget.canvas.axes.axis('equal')
+            x1, x2, y1, y2 = self.MplWidget.canvas.axes.axis()
+            print(x1, x2, y1, y2)
             self.MplWidget.canvas.axes.grid(True)
-            print(str(self.MplWidget.canvas.axes.xticks))
+            color = main_graph.get_facecolor()
             self.MplWidget.canvas.draw()
+            legend2 ='x ='+str(round(max_width_x,3))+' y ='+str(round(max_width_y,3))
+            self.MplWidget.canvas.axes.scatter(max_width_x, max_width_y, s=50, marker='X', c=color)
+
+            # self.MplWidget.canvas.axes.legend(labels=[legend2], loc="upper right")
+            self.MplWidget.canvas.draw()
+
+    def clear_graph(self):
+        print('ok')
+        self.MplWidget.canvas.axes.clear()
+        self.MplWidget.canvas.draw()
         # for i in range(0, p.elements()):
         #     d = dict(id=p.element(i).id, items=p.element(i).items,
         #              type=p.element(i).type)

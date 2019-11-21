@@ -226,6 +226,9 @@
                  <height>20</height>
                 </size>
                </property>
+               <property name="text">
+                <string/>
+               </property>
               </widget>
              </item>
              <item row="0" column="2">
@@ -285,6 +288,13 @@
               </size>
              </property>
             </spacer>
+           </item>
+           <item>
+            <widget class="QPushButton" name="pushButton">
+             <property name="text">
+              <string>Очистить</string>
+             </property>
+            </widget>
            </item>
            <item>
             <widget class="QPushButton" name="pushButton_5">
