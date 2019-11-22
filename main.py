@@ -81,25 +81,22 @@ class MainApp(QtWidgets.QMainWindow, design.Ui_MainWindow):
                  for edge in border for n in edge]
             Y = [p.node_displacement(nodes.index(n))[1] + p.node(nodes.index(n)).y
                  for edge in border for n in edge]
-            legend1 = str(self.lineEdit_3.text())
-            main_graph = self.MplWidget.canvas.axes.scatter(X, Y, s=0.5)
+            legend = str(self.lineEdit_3.text())
+            main_graph = self.MplWidget.canvas.axes.scatter(X, Y, s=0.5, label=legend)
             max_width_x = max(X)
             max_width_y = Y[X.index(max_width_x)]
-            # self.MplWidget.canvas.axes.legend(labels=[legend1], loc="upper left")
             self.MplWidget.canvas.axes.axis('equal')
             x1, x2, y1, y2 = self.MplWidget.canvas.axes.axis()
             print(x1, x2, y1, y2)
             self.MplWidget.canvas.axes.grid(True)
             color = main_graph.get_facecolor()
             self.MplWidget.canvas.draw()
-            legend2 ='x ='+str(round(max_width_x,3))+' y ='+str(round(max_width_y,3))
-            self.MplWidget.canvas.axes.scatter(max_width_x, max_width_y, s=50, marker='X', c=color)
-
+            additional_graph = self.MplWidget.canvas.axes.scatter(max_width_x, max_width_y, s=50, marker='X', c=color)
+            self.MplWidget.canvas.axes.legend(loc="upper left")
             # self.MplWidget.canvas.axes.legend(labels=[legend2], loc="upper right")
             self.MplWidget.canvas.draw()
 
     def clear_graph(self):
-        print('ok')
         self.MplWidget.canvas.axes.clear()
         self.MplWidget.canvas.draw()
         # for i in range(0, p.elements()):
