@@ -6,6 +6,7 @@ from py_post import *
 import random
 import numpy as np
 from collections import OrderedDict, Counter
+from matplotlib.lines import Line2D
 
 class MainApp(QtWidgets.QMainWindow, design.Ui_MainWindow):
     def __init__(self):
@@ -120,9 +121,13 @@ class MainApp(QtWidgets.QMainWindow, design.Ui_MainWindow):
             self.MplWidget.canvas.draw()
             self.MplWidget.canvas.axes.scatter(max_width_x, max_width_y, s=50, marker='X', c=color)
             self.MplWidget.canvas.axes.legend(loc="upper left")
-            # self.MplWidget.canvas.axes.legend(labels=[legend2], loc="upper right")
             self.MplWidget.canvas.draw()
             self.MplWidget.canvas.axes.scatter(max_height_x, max_height_y, s=50, marker='*', c=color)
+            self.MplWidget.canvas.draw()
+            for i in range(0, int(len(X)/2)):
+                x = [X[i*2], X[i*2 + 1]]
+                y = [Y[i*2], Y[i*2 + 1]]
+                self.MplWidget.canvas.axes.plot(x, y, c=color[0])
             self.MplWidget.canvas.draw()
             if self.count_graph == 0:
                 self.tableWidget.setColumnCount(4)
